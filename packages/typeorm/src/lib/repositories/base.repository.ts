@@ -1,5 +1,5 @@
 import { Repository, EntityTarget, ObjectLiteral, FindOptionsWhere, DeepPartial } from 'typeorm';
-import { getConnection } from '../config/database';
+import { getConnection } from '../config/database.js';
 
 /**
  * Classe base para repositórios

@@ -1,5 +1,5 @@
 {
-  "name": "@jogov2/typeorm",
+  "name": "@jogov2/shared-interfaces",
   "version": "0.0.1",
   "type": "module",
   "main": "./dist/index.js",
@@ -18,23 +18,13 @@
     "dist",
     "!**/*.tsbuildinfo"
   ],
-  "scripts": {
-    "insert-user": "node dist/examples/insert-user.js",
-    "insert-multiple-users": "node dist/examples/insert-user.js --multiple",
-    "insert-atribute": "node dist/examples/insert-atribute.js",
-    "insert-multiple-atributes": "node dist/examples/insert-atribute.js --multiple",
-    "test-connection": "node dist/examples/simple-insert.js"
-  },
   "nx": {
     "tags": [
       "scope:shared",
       "type:library"
-    ],
-    "name": "typeorm"
+    ]
   },
   "dependencies": {
-    "@types/pg": "^8.15.5",
-    "pg": "^8.16.3",
     "tslib": "^2.3.0"
   }
 }

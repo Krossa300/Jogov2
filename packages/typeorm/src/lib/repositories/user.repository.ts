@@ -1,6 +1,6 @@
 import { FindOptionsWhere } from 'typeorm';
-import { BaseRepository } from './base.repository';
-import { User } from '../entities/user.entity';
+import { BaseRepository } from './base.repository.js';
+import { User } from '../entities/user.entity.js';
 
 /**
  * Repositório para a entidade User

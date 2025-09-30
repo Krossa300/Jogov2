@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import { pathToFileURL } from 'node:url';
 import { initializeDatabase } from '../lib/config/database.js';
 import { postgresConfig } from '../lib/config/examples.js';
 import { UserService } from '../lib/services/user.service.js';
@@ -136,7 +137,7 @@ async function insertMultipleUsers() {
 }
 
 // Executar o script
-if (require.main === module) {
+if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
   const args = process.argv.slice(2);
   
   if (args.includes('--multiple')) {

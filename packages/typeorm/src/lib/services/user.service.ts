@@ -1,5 +1,5 @@
-import { UserRepository } from '../repositories/user.repository';
-import { User } from '../entities/user.entity';
+import { UserRepository } from '../repositories/user.repository.js';
+import { User } from '../entities/user.entity.js';
 import { validate } from 'class-validator';
 
 /**

@@ -1,17 +1,26 @@
 import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
-  UpdateDateColumn,
   DeleteDateColumn,
+  Column,
 } from 'typeorm';
+
+import { IIdentificavel } from '@jogov2/shared-interfaces';
 
 /**
  * Classe base para todas as entidades
  * Contém campos comuns como ID, timestamps de criação, atualização e exclusão
  */
-export abstract class BaseEntity {
-  @PrimaryGeneratedColumn('uuid')
-  id!: string;
+export abstract class BaseEntity implements IIdentificavel {
+  @PrimaryGeneratedColumn('increment')
+  id!: number;
+
+  @Column({
+    type: 'varchar',
+    length: 255,
+    nullable: true,
+  })
+  codigo?: string;
 
   @CreateDateColumn({
     type: 'timestamp',
@@ -19,14 +28,6 @@ export abstract class BaseEntity {
     name: 'created_at',
   })
   createdAt!: Date;
-
-  @UpdateDateColumn({
-    type: 'timestamp',
-    default: () => 'CURRENT_TIMESTAMP',
-    onUpdate: 'CURRENT_TIMESTAMP',
-    name: 'updated_at',
-  })
-  updatedAt!: Date;
 
   @DeleteDateColumn({
     type: 'timestamp',

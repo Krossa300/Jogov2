@@ -1,5 +1,5 @@
 import { Entity, Column, Index } from 'typeorm';
-import { BaseEntity } from './base.entity';
+import { BaseEntity } from './base.entity.js';
 import { IsEmail, IsNotEmpty, Length } from 'class-validator';
 
 /**

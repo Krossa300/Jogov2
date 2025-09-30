@@ -1,4 +1,4 @@
-import { typeorm } from './typeorm';
+import { typeorm } from './typeorm.js';
 
 describe('typeorm', () => {
   it('should work', () => {
