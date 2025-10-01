@@ -8,6 +8,9 @@
     },
     {
       "path": "./packages/shared-interfaces"
+    },
+    {
+      "path": "./apps/express"
     }
   ]
 }
