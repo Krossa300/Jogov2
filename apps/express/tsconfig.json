@@ -4,6 +4,9 @@
   "include": [],
   "references": [
     {
+      "path": "../../packages/typeorm"
+    },
+    {
       "path": "./tsconfig.app.json"
     },
     {

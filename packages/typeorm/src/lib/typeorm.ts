@@ -2,12 +2,14 @@ import 'reflect-metadata';
 
 // Exportar configurações
 export * from './config/database.js';
+export * from './config/examples.js';
 
 // Exportar entidades base
 export * from './entities/base.entity.js';
 
 // Exportar entidades
 export * from './entities/user.entity.js';
+export * from './entities/atributo.entity.js';
 
 // Exportar repositórios
 export * from './repositories/base.repository.js';
@@ -15,9 +17,13 @@ export * from './repositories/user.repository.js';
 
 // Exportar serviços
 export * from './services/user.service.js';
+export * from './services/atributo.service.js';
 
 // Exportar decorators
 export * from './decorators/index.js';
+
+// Exportar configs de exemplo (e.g., postgresConfig)
+export * from './config/examples.js';
 
 /**
  * Função principal da biblioteca TypeORM

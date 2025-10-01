@@ -29,8 +29,7 @@
     "tags": [
       "scope:shared",
       "type:library"
-    ],
-    "name": "typeorm"
+    ]
   },
   "dependencies": {
     "@types/pg": "^8.15.5",

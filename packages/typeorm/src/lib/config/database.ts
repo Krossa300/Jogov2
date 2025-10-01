@@ -1,4 +1,4 @@
-import { DataSource, DataSourceOptions } from 'typeorm';
+import { DataSource, DataSourceOptions, EntityTarget } from 'typeorm';
 
 /**
  * Interface para configuração da conexão com banco de dados
@@ -12,7 +12,7 @@ export interface DatabaseConfig {
   database?: string;
   synchronize?: boolean;
   logging?: boolean;
-  entities?: string[];
+  entities?: (string | EntityTarget<any>)[];
   migrations?: string[];
   subscribers?: string[];
   ssl?: boolean | object;
