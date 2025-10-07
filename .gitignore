@@ -45,3 +45,6 @@ Thumbs.db
 
 test-output
 packages/typeorm/src/lib/config/examples.ts
+
+vite.config.*.timestamp*
+vitest.config.*.timestamp*
