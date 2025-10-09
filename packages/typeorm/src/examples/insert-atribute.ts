@@ -1,11 +1,10 @@
 import 'reflect-metadata';
 import { pathToFileURL } from 'node:url';
-import { initializeDatabase } from '../lib/config/database.js';
-import { postgresConfig } from '../lib/config/examples.js';
+import { initializeDatabase, postgresConfig } from '../lib/config/database.js';
 import { AtributoService } from '../lib/services/atributo.service.js';
 
 /**
- * Script de exemplo para inserir usuários no banco de dados
+ * Script de exemplo para inserir atributos no banco de dados
  */
 async function insertAtributo() {
   try {

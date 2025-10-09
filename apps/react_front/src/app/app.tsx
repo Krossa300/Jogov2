@@ -1,52 +1,58 @@
-/*
-import NxWelcome from './nx-welcome';
-import { Route, Routes, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { IAtributoBase } from '@jogov2/shared-interfaces';
+import TabelaDeAtributos from '../componentes/TabelaDeAtributos';
 
 export function App() {
-  return (
-    <div>
-      <NxWelcome title="@jogov2/react_front" />
-      <br />
-      <hr />
-      <br />
-      <div role="navigation">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/page-2">Page 2</Link>
-          </li>
-        </ul>
+  const [atributos, setAtributos] = useState<IAtributoBase[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  
+  const url = 'http://localhost:3333/api/atributos';
+
+  useEffect(() => {
+    const fetchAtributos = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+          throw new Error(`Erro ao buscar atributos: ${response.status}`);
+        }
+        
+        const data: IAtributoBase[] = await response.json();
+        setAtributos(data);
+        setError(null);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Erro desconhecido');
+        console.error('Erro ao buscar atributos:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAtributos();
+  }, [url]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="text-stone-600 font-serif">Carregando atributos...</div>
       </div>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              This is the generated root route.{' '}
-              <Link to="/page-2">Click here for page 2.</Link>
-            </div>
-          }
-        />
-        <Route
-          path="/page-2"
-          element={
-            <div>
-              <Link to="/">Click here to go back to root page.</Link>
-            </div>
-          }
-        />
-      </Routes>
-    </div>
-  );
-}
-*/
-export function App2() {
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="text-red-600 font-serif">Erro: {error}</div>
+      </div>
+    );
+  }
+
   return (
     <div>
-      <h1>Welcome to App 2</h1>
+      <TabelaDeAtributos atributos={atributos} />
     </div>
   );
 }
-export default App2;
+export default App;

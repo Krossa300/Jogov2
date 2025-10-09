@@ -1,7 +1,6 @@
 import 'reflect-metadata';
 import { pathToFileURL } from 'node:url';
-import { initializeDatabase } from '../lib/config/database.js';
-import { postgresConfig } from '../lib/config/examples.js';
+import { initializeDatabase, postgresConfig } from '../lib/config/database.js';
 import { UserService } from '../lib/services/user.service.js';
 
 /**

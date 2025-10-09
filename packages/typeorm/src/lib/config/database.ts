@@ -18,6 +18,16 @@ export interface DatabaseConfig {
   ssl?: boolean | object;
 }
 
+export const postgresConfig : DatabaseConfig = {
+  type: 'postgres',
+  host: 'localhost',
+  port: 5432,
+  username: 'postgres',
+  password: 'senhateste',
+  database: 'ProjetoJogo',
+  synchronize: false,
+}
+
 /**
  * Classe para gerenciar a conexão com o banco de dados
  */
